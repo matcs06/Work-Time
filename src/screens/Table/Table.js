@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Table.css";
 
 import "../../services/SetMonthId";
@@ -22,9 +22,6 @@ import {
 
 const Table = (props, EditSettingsModel, ToolbarItems) => {
   const { data } = props;
-
-  var date = new Date();
-  var year = date.getFullYear();
 
   const editOptions = (EditSettingsModel = {
     allowEditing: true,
@@ -50,7 +47,7 @@ const Table = (props, EditSettingsModel, ToolbarItems) => {
         dataSource={dataSource}
         allowPaging={true}
         editSettings={editOptions}
-        pageSettings={{ pageSize: 16 }}
+        pageSettings={{ pageSize: 15 }}
         toolbar={toolbarOptions}
       >
         <ColumnsDirective>

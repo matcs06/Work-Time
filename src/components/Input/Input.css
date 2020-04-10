@@ -1,0 +1,17 @@
+div.input-container {
+  display: flex;
+  align-items: center;
+  width: 200px;
+  margin-top: 10px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+}
+.input-description {
+  color: aliceblue;
+  font: outline;
+}
+input {
+  width: 23%;
+  height: 25px;
+  text-align: center;
+}

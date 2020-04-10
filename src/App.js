@@ -12,6 +12,7 @@ import DropDownWeek from "./components/Dropdown/DropDownWeek";
 import ClickListener from "./components/ClickListener/Clicklistener";
 import CheckboxOption from "./components/CheckBox/CheckBoxOption";
 import Header from "./components/Header/Header";
+import Input from "./components/Input/Input";
 
 const monthOptions = [
   { key: "a", text: "Selecione o mês", value: null },
@@ -43,12 +44,12 @@ const weekOptions = [
 function App() {
   const [apidata, setApiData] = useState([]);
   const [click, setClick] = useState(false);
-  const [days, setDays] = useState("");
+
   //Shared State Setters
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedDay, setSelectedDay] = useState("");
   const [excludeWeekends, setexcludeWeekends] = useState(false);
-  const [numberInput, setNumberInput] = useState(28);
+  const [days, setDays] = useState(28);
 
   async function Generate() {
     let monthId;
@@ -74,16 +75,16 @@ function App() {
         <div className="month-options">
           <DropDownMonth options={monthOptions} getMonth={setSelectedMonth} />
         </div>
-        <div className="weekoptions">
+        <div className="week-options">
           <DropDownWeek options={weekOptions} getWeek={setSelectedDay} />
         </div>
+
+        <CheckboxOption getClick={setexcludeWeekends} />
         <button className="button" type="submit" onClick={Generate}>
           Gerar Planilha
         </button>
       </div>
-      <div>
-        <CheckboxOption getClick={setexcludeWeekends} />
-      </div>
+      <Input getDays={setDays} selectedMonth={selectedMonth} />
       <ClickListener
         content={Table}
         click={click}

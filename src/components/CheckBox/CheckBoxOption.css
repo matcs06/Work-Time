@@ -1,0 +1,15 @@
+.checkbox {
+  background-color: rgb(34, 34, 34);
+  text-align: center;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  color: rgb(255, 255, 255);
+  transition: filter 0.4s;
+}
+
+.checkbox:hover {
+  filter: brightness(90%);
+}

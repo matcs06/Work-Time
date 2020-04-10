@@ -1,7 +1,7 @@
 import React from "react";
 import "./Clicklistener.css";
 
-import Img from "../../images/ment.png";
+import Img from "../../images/Working_Schedule.png";
 // import { Container } from './styles';
 
 const ClickListener = ({ content, click, data, monthSelected }) => {
@@ -14,7 +14,11 @@ const ClickListener = ({ content, click, data, monthSelected }) => {
       </div>
     );
   } else {
-    return <div className="image-container"></div>;
+    return (
+      <div className="image-container">
+        <img src={Img} alt="" />
+      </div>
+    );
   }
 };
 
