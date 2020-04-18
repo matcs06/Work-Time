@@ -1,21 +1,19 @@
 import React from "react";
 import "./Table.css";
 
-import "../../services/SetMonthId";
-
 import {
   GridComponent,
   ColumnsDirective,
   ColumnDirective,
   Page,
   Inject,
+  Aggregate,
 } from "@syncfusion/ej2-react-grids";
 
 import { DataManager, JsonAdaptor } from "@syncfusion/ej2-data";
 import {
   Edit,
   EditSettingsModel,
-  IGrid,
   Toolbar,
   ToolbarItems,
 } from "@syncfusion/ej2-react-grids";
@@ -35,7 +33,7 @@ const Table = (props, EditSettingsModel, ToolbarItems) => {
     "Cancel",
   ]);
 
-  //Changing an array to a json strucute
+  //Using json adaptor for table in data from api
   const dataSource = new DataManager({
     json: data,
     adaptor: new JsonAdaptor(),
@@ -45,9 +43,8 @@ const Table = (props, EditSettingsModel, ToolbarItems) => {
     <div className="main-container_6">
       <GridComponent
         dataSource={dataSource}
-        allowPaging={true}
+        allowPaging={false}
         editSettings={editOptions}
-        pageSettings={{ pageSize: 15 }}
         toolbar={toolbarOptions}
       >
         <ColumnsDirective>
@@ -60,23 +57,23 @@ const Table = (props, EditSettingsModel, ToolbarItems) => {
           <ColumnDirective
             field="Semana"
             headerText="Dias da semana"
-            editType="dropdownedit"
+            allowEditing={false}
           />
           <ColumnDirective field="Entrada" headerText="Entrada" />
           <ColumnDirective field="Saída" headerText="Saída" />
           <ColumnDirective
-            field="Horas Extras"
+            field="HorasExtras"
             headerText="Horas Extras(Minutos)"
             editType="numericedit"
             width="20%"
           />
           <ColumnDirective
-            field="Observações"
+            field="Observacoes"
             headerText="Observações"
             width="20%"
           />
         </ColumnsDirective>
-        <Inject services={[Page, Edit, Toolbar]} />
+        <Inject services={[Page, Edit, Toolbar, Aggregate]} />
       </GridComponent>
     </div>
   );

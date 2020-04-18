@@ -7,12 +7,11 @@ const Input = (props) => {
   const { getDays, selectedMonth } = props;
   const [inputday, setInputDay] = useState();
 
-  const changeHandler = (e) => {
-    setInputDay(e.target.value);
-    getDays(e.target.value);
-  };
-
   if (selectedMonth === "fevereiro") {
+    const changeHandler = (e) => {
+      setInputDay(e.target.value);
+      getDays(e.target.value);
+    };
     return (
       <div className="input-container">
         <p className="input-description">Quantos dias?: </p>
@@ -22,11 +21,12 @@ const Input = (props) => {
           onChange={changeHandler}
           min="28"
           max="29"
+          defaultValue="28"
         />
       </div>
     );
   } else {
-    return <div></div>;
+    return <></>;
   }
 };
 

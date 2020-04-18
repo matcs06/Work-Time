@@ -14,6 +14,7 @@ import CheckboxOption from "./components/CheckBox/CheckBoxOption";
 import Header from "./components/Header/Header";
 import Input from "./components/Input/Input";
 
+//month values for dropdown
 const monthOptions = [
   { key: "a", text: "Selecione o mês", value: null },
   { key: 0, text: "Janeiro", value: "janeiro" },
@@ -29,7 +30,7 @@ const monthOptions = [
   { key: 10, text: "Novembro", value: "novembro" },
   { key: 11, text: "Dezembro", value: "dezembro" },
 ];
-
+//week options for dropdown
 const weekOptions = [
   { key: "a", text: "Primeiro dia do mês", value: null },
   { key: 1, text: "Segunda", value: "segunda" },
